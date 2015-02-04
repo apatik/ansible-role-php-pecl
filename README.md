@@ -21,7 +21,7 @@ A list of extensions that should be installed via `pecl install`. If you'd like 
 
 ## Dependencies
 
-  - geerlingguy.php
+  - ~~geerlingguy.php~~
 
 ## Example Playbook
 
