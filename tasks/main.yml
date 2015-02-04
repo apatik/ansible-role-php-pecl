@@ -5,3 +5,8 @@
   changed_when: "pecl_result.rc == 0"
   failed_when: "not (('already installed' in pecl_result.stdout) or ('install ok:' in pecl_result.stdout))"
   with_items: php_pecl_extensions
+
+- name: Generate .ini files for extensions
+  when: php_ini_dir is defined
+  template: src=extension.ini.j2 dest={{php_ini_dir}}/{{item}}.ini owner=root group=root mode=0644
+  with_items: php_pecl_extensions_requiring_ini_files

@@ -36,6 +36,18 @@ A list of extensions that should be installed via `pecl install`. If you'd like 
     php_pecl_extensions:
       - xdebug
 
+## Generating .ini files on the fly
+
+Some PHP extensions need to be included as part of your php.ini, or (preferred) as an individual {extension}.ini. To have Ansible generate these files; provide the path to your php_ini_dir and an array of extensions as below:
+
+    roles:
+      - role: ansible-role-php-pecl
+        php_pecl_extensions:
+          - oauth
+        php_ini_dir: "/etc/php.d"
+        php_pecl_extensions_requiring_ini_files:
+          - oauth
+
 ## License
 
 MIT / BSD
